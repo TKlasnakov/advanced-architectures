@@ -6,9 +6,10 @@ import { AlarmFactory } from './alarms/domain/factories/alarm.factory';
 import { CoreModule } from './core/core.module';
 import { ApplicationBootstrapOptions } from './common/interfaces/application-bootstrap-options.interface';
 import { AlarmInfrastructureModule } from './alarms/infrastructure/persistence/alarms-infrastructure.module';
+import { CqrsModule } from '@nestjs/cqrs';
 
 @Module({
-  imports: [CoreModule],
+  imports: [CqrsModule.forRoot(), CoreModule],
   controllers: [AppController],
   providers: [AppService, AlarmFactory],
 })
