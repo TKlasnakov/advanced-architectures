@@ -8,9 +8,11 @@ import { randomUUID } from 'crypto';
 
 @Injectable()
 export class AlarmFactory {
+  [x: string]: any;
   create(name: string, severity: string): Alarm {
     const alarmId = randomUUID();
     const alarmSeverity = new AlarmSeverity(severity as AlarmSeverityType);
+
     return new Alarm(alarmId, name, alarmSeverity);
   }
 }
