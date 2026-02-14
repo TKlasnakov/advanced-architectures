@@ -27,7 +27,6 @@ export class CreateAlarmCommandHandler implements ICommandHandler<CreateAlarmCom
       command.items,
     );
 
-    console.log(JSON.stringify(alarm));
     const newAlarm = await this.alarmRepository.save(alarm);
 
     this.eventBus.publish(new AlarmCreatedEvent(alarm));
